@@ -21,12 +21,13 @@
     // Override point for customization after application launch.
 	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
-	UIStoryboard* sb = nil;
+	NSString* storyboardName = nil;
 	if ([self isLoooooongIPhone]) {
-		sb = [UIStoryboard storyboardWithName:@"iPhone5" bundle:nil];
+		storyboardName = @"iPhone5";
 	} else {
-		sb = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+		storyboardName = @"iPhone";
 	}
+	UIStoryboard* sb = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
 
 	UIViewController* vc = (UIViewController*)[sb instantiateViewControllerWithIdentifier:@"MainVC"];
 	self.window.rootViewController = vc;
