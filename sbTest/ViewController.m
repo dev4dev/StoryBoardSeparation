@@ -10,22 +10,35 @@
 
 @interface ViewController ()
 
+- (IBAction)showButtonTapped:(id)sender;
+- (IBAction)dimissButtonTapped:(id)sender;
+
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad
+- (IBAction)
+showButtonTapped:(id)sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-
-	NSLog(@"%@", self.storyboard);
+	UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainVC"];
+	vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[self presentViewController:vc animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)
+dimissButtonTapped:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	if (self.presentingViewController) {
+		[self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+	} else {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"😃"
+														message:@"It's Root VC"
+													   delegate:nil
+											  cancelButtonTitle:@"OK"
+											  otherButtonTitles:nil];
+		[alert show];
+
+	}
 }
 
 @end
