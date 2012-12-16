@@ -20,7 +20,7 @@
 - (IBAction)
 showButtonTapped:(id)sender
 {
-	UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainVC"];
+	UIViewController* vc = [self.storyboard instantiateInitialViewController];
 	vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentViewController:vc animated:YES completion:nil];
 }

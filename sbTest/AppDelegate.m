@@ -29,7 +29,7 @@
 	}
 	UIStoryboard* sb = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
 
-	UIViewController* vc = (UIViewController*)[sb instantiateViewControllerWithIdentifier:@"MainVC"];
+	UIViewController* vc = (UIViewController*)[sb instantiateInitialViewController];
 	self.window.rootViewController = vc;
 	[self.window makeKeyAndVisible];
 
